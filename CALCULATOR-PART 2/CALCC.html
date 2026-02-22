@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculator</title>
+        <link rel="stylesheet" href="CALCC.css">
+        
+    </head>
+    <body>
+        <div class="container">
+          <div class="calculator">
+            
+            <div class="buttons">
+                <input type="text" id="display" >
+
+              <button class="num" onclick="appendToDisplay('/')">/</button>
+              <button  class="num" onclick="appendToDisplay('1')">1</button>
+              <button class="num" onclick="appendToDisplay('2')">2</button>
+              <button class="num" onclick="appendToDisplay('3')">3</button>
+              <button class="num" onclick="appendToDisplay('*')">*</button>
+              <button class="num" onclick="appendToDisplay('4')">4</button>
+              <button class="num" onclick="appendToDisplay('5')">5</button>
+              <button class="num" onclick="appendToDisplay('6')">6</button>
+              <button class="num" onclick="appendToDisplay('+')">+</button>
+              <button class="num" onclick="appendToDisplay('7')">7</button>
+              <button class="num" onclick="appendToDisplay('8')">8</button>
+              <button class="num" onclick="appendToDisplay('9')">9</button>
+              <button class="num" onclick="appendToDisplay('-')">-</button>
+              <button class="num" onclick="appendToDisplay('.')">.</button>
+              <button class="num" onclick="appendToDisplay('0')">0</button>
+              <button onclick="deleteLast()">DE</button>
+                <button onclick="calculate()" class="fat">=</button>
+                <button onclick="clearDisplay()" class="clar">C</button>
+            </div>  
+          </div>  
+        </div>
+        <script>
+            function appendToDisplay(value) {
+                document.getElementById('display').value += value;
+            }
+
+            function clearDisplay() {
+                document.getElementById('display').value = '';
+            }
+
+            function calculate() {
+                try {
+                    const result = eval(document.getElementById('display').value);
+                    document.getElementById('display').value = result;
+                } catch (error) {
+                    document.getElementById('display').value = 'Error';
+                }
+            }
+            function deleteLast() {
+                const display = document.getElementById('display');
+                display.value = display.value.slice(0, -1);
+            }
+        </script>
+    </body>
+</html>
